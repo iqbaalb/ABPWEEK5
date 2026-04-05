@@ -1,24 +1,27 @@
 <div align="center">
 
-# LAPORAN PRAKTIKUM  
-# APLIKASI BERBASIS PLATFORM
+# LAPORAN PRAKTIKUM
 
-## COTS 
+# APLIKASI CRUD DATA MAHASISWA
+
+## COTS 2
 
 <img src="logotelu.jpeg" alt ="logo" width = "300"> 
 
 ### Disusun Oleh
-**[Iqbal Bawani]**  
-[2311102130]  
-[IF-11-04]  
+
+**Iqbal Bawani**
+2311102130
+IF-11-04
 
 ### Dosen Pengampu
+
 **Cahyo Prihantoro, S.Kom., M.Eng.**
 
+### LABORATORIUM HIGH PERFORMANCE
 
-### LABORATORIUM HIGH PERFORMANCE  
-FAKULTAS INFORMATIKA  
-UNIVERSITAS TELKOM PURWOKERTO  
+FAKULTAS INFORMATIKA
+UNIVERSITAS TELKOM PURWOKERTO
 2026
 
 </div>
@@ -29,139 +32,176 @@ UNIVERSITAS TELKOM PURWOKERTO
 
 ## 1. Aplikasi Web
 
+Aplikasi web adalah perangkat lunak yang berjalan pada server dan dapat diakses melalui browser menggunakan protokol HTTP/HTTPS. Aplikasi web terdiri dari dua bagian utama yaitu frontend (client-side) dan backend (server-side). Frontend bertugas menampilkan antarmuka kepada pengguna, sedangkan backend bertugas mengelola logika aplikasi dan database.
 
 ---
 
-## 2. CodeIgneter
+## 2. CodeIgniter
 
+CodeIgniter adalah framework PHP berbasis MVC (Model-View-Controller) yang digunakan untuk membangun aplikasi web secara terstruktur. Dengan konsep MVC, aplikasi dipisahkan menjadi:
 
+* Model → mengelola data
+* View → tampilan
+* Controller → logika aplikasi
+
+Keunggulan CodeIgniter:
+
+* Ringan dan cepat
+* Mudah dipelajari
+* Dokumentasi lengkap
 
 ---
 
 ## 3. Bootstrap
 
+Bootstrap adalah framework CSS yang digunakan untuk membuat tampilan web yang responsif dan menarik. Bootstrap menyediakan komponen seperti tombol, form, tabel, dan grid system.
 
 ---
 
 ## 4. CRUD (Create, Read, Update, Delete)
 
+CRUD adalah operasi dasar dalam pengolahan data:
+
+* Create → menambah data
+* Read → menampilkan data
+* Update → mengubah data
+* Delete → menghapus data
 
 ---
 
-## 7. DataTables jQuery Plugin
+## 5. jQuery
 
+jQuery adalah library JavaScript yang digunakan untuk mempermudah manipulasi DOM dan AJAX.
 
 ---
 
-## 8. JSON (JavaScript Object Notation)
+## 6. DataTables jQuery Plugin
 
+DataTables adalah plugin jQuery yang digunakan untuk menampilkan data dalam bentuk tabel interaktif dengan fitur:
 
-## 9. Mysql sebagai Penyimpanan Data
+* Pencarian (search)
+* Pengurutan (sorting)
+* Pagination
 
+---
 
+## 7. JSON (JavaScript Object Notation)
+
+JSON adalah format pertukaran data yang ringan dan digunakan dalam aplikasi ini untuk menampilkan data pada DataTables melalui AJAX.
+
+---
+
+## 8. MySQL sebagai Penyimpanan Data
+
+MySQL adalah sistem manajemen basis data yang digunakan untuk menyimpan data mahasiswa. Data disimpan dalam tabel dan diakses melalui model pada CodeIgniter.
+
+---
+
+## Struktur Aplikasi
+
+```bash
+app/
+├── Controllers/
+│   └── Mahasiswa.php
+├── Models/
+│   └── MahasiswaModel.php
+├── Views/
+│   ├── mahasiswa/
+│   │   ├── index.php
+│   │   ├── form.php
+│   │   └── edit.php
 ```
 
 ## Keterangan Struktur
 
-
-
----
-
-## 4. Cara Menjalankan Aplikasi
-
-**1. Buka folder project di VS Code**
-
-Pastikan sudah terinstall:
-- Node.js (minimal versi 16.x)
-- npm (sudah termasuk dalam instalasi Node.js)
+* Controller → mengatur alur aplikasi
+* Model → berhubungan dengan database
+* View → tampilan halaman
 
 ---
 
-**2. Buka terminal di VS Code**
+## Cara Menjalankan Aplikasi
+
+1. Buka folder project di VS Code
+
+2. Jalankan server CodeIgniter:
 
 ```bash
-Ctrl + `
+php spark serve
+```
+
+3. Buka browser:
+
+```bash
+http://localhost:8080/mahasiswa
 ```
 
 ---
 
-**3. Masuk ke folder project**
+## Kode Program
 
-```bash
-cd C:\Users\NamaAnda\NamaFolder
-```
+### Controller (Mahasiswa.php)
 
----
+Mengatur proses CRUD dan pengambilan data JSON.
 
-**4. Install dependency**
+### Model (MahasiswaModel.php)
 
-```bash
-npm install
-```
+Mengelola database dan field yang digunakan.
 
----
+### View
 
-**5. Jalankan server Node.js**
-
-```bash
-node server.js
-```
+Menampilkan halaman form, tabel, dan edit.
 
 ---
 
-**6. Buka browser dan akses alamat berikut**
+## Alur CRUD Aplikasi
 
-```bash
-http://localhost:3000
-```
+### Create
 
-> **Alternatif tanpa Node.js:** Cukup buka file `index.html` langsung di browser menggunakan ekstensi **Live Server** di VS Code. Semua fitur CRUD tetap berjalan penuh menggunakan localStorage.
+User menginput data melalui form kemudian disimpan ke database.
 
----
+### Read
 
-## 5. Kode Program
+Data ditampilkan menggunakan DataTables berbasis JSON.
 
+### Update
 
+User mengubah data melalui halaman edit.
 
-**Penjelasan Fungsi CRUD**
+### Delete
 
-
-
----
-
-### I. Script CDN — Urutan yang Benar (`index.html`)
-
-
-
-**Penjelasan Urutan Script**
-
-
+User menghapus data melalui tombol delete.
 
 ---
 
-## 6. Alur CRUD Aplikasi
+## Screenshot Website
 
+1. Halaman Tabel Data
+   (Tambahkan screenshot)
 
----
+2. Halaman Tambah Data
+   (Tambahkan screenshot)
 
-
-
----
-
-## 7. Screenshot Website
-
-1. 
----
-
-## 8. Kesimpulan
-
+3. Halaman Edit Data
+   (Tambahkan screenshot)
 
 ---
 
-## 9. Referensi
+## Kesimpulan
 
-1. 
+Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan CodeIgniter dan telah memenuhi seluruh kriteria tugas, yaitu penggunaan Bootstrap, jQuery, DataTables, serta implementasi JSON.
+
 ---
 
-## 10. Link Gdrive
-[]
+## Referensi
+
+1. https://codeigniter.com
+2. https://getbootstrap.com
+3. https://jquery.com
+4. https://datatables.net
+
+---
+
+## Link Gdrive
+
+https://drive.google.com/drive/folders/1oOSQffoSW49_lcFSTZ1C25vm2YYmrc4Z?usp=sharing
