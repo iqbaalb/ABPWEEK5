@@ -1,4 +1,4 @@
-<div align="center">
+<img width="1226" height="612" alt="image" src="https://github.com/user-attachments/assets/a81fb803-0d8c-4d99-8243-8f5767ccb888" /><div align="center">
 
 # LAPORAN PRAKTIKUM
 
@@ -267,13 +267,16 @@ User menghapus data melalui tombol delete.
 ## Screenshot Website
 
 1. Halaman Tabel Data
-   (Tambahkan screenshot)
+   <img src="gambar/indexphp.PNG" >
 
 2. Halaman Tambah Data
-   (Tambahkan screenshot)
+   <img src="gambar/formphp.PNG" >
+   <img src="gambar/tambah.PNG" >
+   <img src="gambar/notifberhasilsimpan.PNG" >
 
 3. Halaman Edit Data
-   (Tambahkan screenshot)
+   <img src="gambar/editphp.PNG" >
+   <img src="gambar/notifberhasilupdatephp.PNG" >
 
 
 ## Kesimpulan
