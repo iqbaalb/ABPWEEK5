@@ -96,29 +96,70 @@ JSON adalah format pertukaran data yang ringan dan digunakan dalam aplikasi ini 
 MySQL adalah sistem manajemen basis data yang digunakan untuk menyimpan data mahasiswa. Data disimpan dalam tabel dan diakses melalui model pada CodeIgniter.
 
 ---
-
 ## Struktur Aplikasi
 
 ```bash
-app/
-├── Controllers/
-│   └── Mahasiswa.php
-├── Models/
-│   └── MahasiswaModel.php
-├── Views/
-│   ├── mahasiswa/
-│   │   ├── index.php
-│   │   ├── form.php
-│   │   └── edit.php
+COTS/                       # Root direktori utama project
+│
+├── app/                    # Folder utama logika aplikasi (CodeIgniter)
+│   ├── Config/             # Konfigurasi sistem
+│   │   └── Routes.php      # Pengaturan routing URL
+│   │
+│   ├── Controllers/        # Controller (pengatur alur aplikasi)
+│   │   └── Mahasiswa.php   # Mengelola request CRUD dan JSON DataTables
+│   │
+│   ├── Models/             # Model (akses database)
+│   │   └── MahasiswaModel.php  # Query database tabel mahasiswa
+│   │
+│   └── Views/              # Tampilan (UI)
+│       └── mahasiswa/      # Folder khusus fitur mahasiswa
+│           ├── index.php   # Halaman utama (DataTables + JSON)
+│           ├── form.php    # Halaman tambah data mahasiswa
+│           └── edit.php    # Halaman edit data mahasiswa
+│
+├── public/                 # Folder public (entry point aplikasi)
+│   └── index.php           # File utama untuk menjalankan aplikasi
+│
+├── writable/               # Folder untuk cache, log, dll
+│
+├── .env                    # Konfigurasi database & environment
+│
+├── mahasiswa.sql           # File database MySQL (tabel mahasiswa)
+│
+└── README.md               # Dokumentasi project
 ```
+
+---
 
 ## Keterangan Struktur
 
-* Controller → mengatur alur aplikasi
-* Model → berhubungan dengan database
-* View → tampilan halaman
+* **Config/Routes.php**
+  Mengatur rute URL agar dapat mengakses controller dengan benar.
+
+* **Controllers/Mahasiswa.php**
+  Mengatur alur aplikasi, menerima request dari user, dan memproses CRUD.
+
+* **Models/MahasiswaModel.php**
+  Menghubungkan aplikasi dengan database MySQL dan menjalankan query.
+
+* **Views/mahasiswa/**
+  Berisi tampilan aplikasi:
+
+  * `index.php` → halaman tabel DataTables
+  * `form.php` → halaman tambah data
+  * `edit.php` → halaman edit data
+
+* **public/**
+  Folder yang diakses oleh browser.
+
+* **.env**
+  Digunakan untuk konfigurasi koneksi database.
+
+* **mahasiswa.sql**
+  Berisi struktur tabel database yang digunakan dalam aplikasi.
 
 ---
+
 
 ## Cara Menjalankan Aplikasi
 
