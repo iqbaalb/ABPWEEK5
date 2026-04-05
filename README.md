@@ -5,7 +5,7 @@
 
 ## COTS 
 
-<img src="assets/logotelu.jpeg" alt ="logo" width = "300"> 
+<img src="logotelu.jpeg" alt ="logo" width = "300"> 
 
 ### Disusun Oleh
 **[Iqbal Bawani]**  
