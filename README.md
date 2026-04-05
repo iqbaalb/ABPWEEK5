@@ -164,4 +164,4 @@ http://localhost:3000
 ---
 
 ## 10. Link Gdrive
-[https://drive.google.com/drive/folders/1oOSQffoSW49_lcFSTZ1C25vm2YYmrc4Z?usp=sharing]
+[]
