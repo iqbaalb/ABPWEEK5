@@ -4,8 +4,7 @@
 
 # APLIKASI CRUD DATA MAHASISWA
 
-## CODING ON THE SPOT
-MANAJEMEN STOK
+## CODING ON THE SPOTMANAJEMEN STOK
 
 <img src="logotelu.jpeg" alt ="logo" width = "300"> 
 
