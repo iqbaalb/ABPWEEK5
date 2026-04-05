@@ -506,4 +506,4 @@ Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan CodeIgniter dan telah m
 
 ## Link Gdrive
 
-https://drive.google.com/drive/folders/1oOSQffoSW49_lcFSTZ1C25vm2YYmrc4Z?usp=sharing
+
