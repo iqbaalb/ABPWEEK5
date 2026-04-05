@@ -34,7 +34,6 @@ UNIVERSITAS TELKOM PURWOKERTO
 
 Aplikasi web adalah perangkat lunak yang berjalan pada server dan dapat diakses melalui browser menggunakan protokol HTTP/HTTPS. Aplikasi web terdiri dari dua bagian utama yaitu frontend (client-side) dan backend (server-side). Frontend bertugas menampilkan antarmuka kepada pengguna, sedangkan backend bertugas mengelola logika aplikasi dan database.
 
----
 
 ## 2. CodeIgniter
 
@@ -50,13 +49,11 @@ Keunggulan CodeIgniter:
 * Mudah dipelajari
 * Dokumentasi lengkap
 
----
 
 ## 3. Bootstrap
 
 Bootstrap adalah framework CSS yang digunakan untuk membuat tampilan web yang responsif dan menarik. Bootstrap menyediakan komponen seperti tombol, form, tabel, dan grid system.
 
----
 
 ## 4. CRUD (Create, Read, Update, Delete)
 
@@ -67,13 +64,11 @@ CRUD adalah operasi dasar dalam pengolahan data:
 * Update → mengubah data
 * Delete → menghapus data
 
----
 
 ## 5. jQuery
 
 jQuery adalah library JavaScript yang digunakan untuk mempermudah manipulasi DOM dan AJAX.
 
----
 
 ## 6. DataTables jQuery Plugin
 
@@ -83,19 +78,16 @@ DataTables adalah plugin jQuery yang digunakan untuk menampilkan data dalam bent
 * Pengurutan (sorting)
 * Pagination
 
----
 
 ## 7. JSON (JavaScript Object Notation)
 
 JSON adalah format pertukaran data yang ringan dan digunakan dalam aplikasi ini untuk menampilkan data pada DataTables melalui AJAX.
 
----
 
 ## 8. MySQL sebagai Penyimpanan Data
 
 MySQL adalah sistem manajemen basis data yang digunakan untuk menyimpan data mahasiswa. Data disimpan dalam tabel dan diakses melalui model pada CodeIgniter.
 
----
 ## Struktur Aplikasi
 
 ```bash
@@ -129,7 +121,6 @@ COTS/                       # Root direktori utama project
 └── README.md               # Dokumentasi project
 ```
 
----
 
 ## Keterangan Struktur
 
@@ -158,7 +149,6 @@ COTS/                       # Root direktori utama project
 * **mahasiswa.sql**
   Berisi struktur tabel database yang digunakan dalam aplikasi.
 
----
 
 
 ## Cara Menjalankan Aplikasi
@@ -177,7 +167,6 @@ php spark serve
 http://localhost:8080/mahasiswa
 ```
 
----
 
 ## Kode Program
 
@@ -193,7 +182,6 @@ Mengelola database dan field yang digunakan.
 
 Menampilkan halaman form, tabel, dan edit.
 
----
 
 ## Alur CRUD Aplikasi
 
@@ -213,7 +201,6 @@ User mengubah data melalui halaman edit.
 
 User menghapus data melalui tombol delete.
 
----
 
 ## Screenshot Website
 
@@ -226,13 +213,11 @@ User menghapus data melalui tombol delete.
 3. Halaman Edit Data
    (Tambahkan screenshot)
 
----
 
 ## Kesimpulan
 
 Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan CodeIgniter dan telah memenuhi seluruh kriteria tugas, yaitu penggunaan Bootstrap, jQuery, DataTables, serta implementasi JSON.
 
----
 
 ## Referensi
 
@@ -241,7 +226,6 @@ Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan CodeIgniter dan telah m
 3. https://jquery.com
 4. https://datatables.net
 
----
 
 ## Link Gdrive
 
