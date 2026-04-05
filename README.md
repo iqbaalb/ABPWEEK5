@@ -108,15 +108,9 @@ COTS/                       # Root direktori utama project
 │           ├── index.php   # Halaman utama (DataTables + JSON)
 │           ├── form.php    # Halaman tambah data mahasiswa
 │           └── edit.php    # Halaman edit data mahasiswa
-│
-├── public/                 # Folder public (entry point aplikasi)
-│   └── index.php           # File utama untuk menjalankan aplikasi
-│
-├── writable/               # Folder untuk cache, log, dll
-│
 ├── .env                    # Konfigurasi database & environment
 │
-├── mahasiswa.sql           # File database MySQL (tabel mahasiswa)
+├── db_mahasiswa.sql           # File database MySQL (tabel mahasiswa)
 │
 └── README.md               # Dokumentasi project
 ```
@@ -161,7 +155,7 @@ COTS/                       # Root direktori utama project
 php spark serve
 ```
 
-3. Buka browser:
+3. Klik + CTRL atau Buka browser:
 
 ```bash
 http://localhost:8080/mahasiswa
@@ -171,6 +165,74 @@ http://localhost:8080/mahasiswa
 ## Kode Program
 
 ### Controller (Mahasiswa.php)
+
+```php
+<?php
+
+namespace App\Controllers;
+
+use App\Models\MahasiswaModel;
+
+class Mahasiswa extends BaseController
+{
+    protected $mhs;
+
+    public function __construct()
+    {
+        $this->mhs = new MahasiswaModel();
+    }
+
+    public function index()
+    {
+        return view('mahasiswa/index');
+    }
+
+    public function getData()
+    {
+        return $this->response->setJSON([
+            'data' => $this->mhs->findAll()
+        ]);
+    }
+
+    public function form()
+    {
+        return view('mahasiswa/form');
+    }
+
+    public function save()
+    {
+        $this->mhs->save($this->request->getPost());
+
+        return redirect()->to('/mahasiswa')
+            ->with('success', 'Data berhasil disimpan');
+    }
+
+    public function edit($id)
+    {
+        return view('mahasiswa/edit', [
+            'mhs' => $this->mhs->find($id)
+        ]);
+    }
+
+    public function update($id)
+    {
+        $this->mhs->update($id, $this->request->getPost());
+
+        return redirect()->to('/mahasiswa')
+            ->with('success', 'Data berhasil diupdate');
+    }
+
+    public function delete($id)
+    {
+        $this->mhs->delete($id);
+
+        return redirect()->to('/mahasiswa')
+            ->with('success', 'Data berhasil dihapus');
+    }
+}
+
+```
+Penjelasan Singkat :
 
 Mengatur proses CRUD dan pengambilan data JSON.
 
