@@ -237,12 +237,216 @@ Penjelasan Singkat :
 Mengatur proses CRUD dan pengambilan data JSON.
 
 ### Model (MahasiswaModel.php)
+```php
+
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class MahasiswaModel extends Model
+{
+    protected $table = 'mahasiswa';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['nama', 'nim'];
+}
+```
+Penjelasan Singkat :
 
 Mengelola database dan field yang digunakan.
 
 ### View
 
+#### index.php
+```php
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Mahasiswa</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+
+        <!--  NOTIFIKASI -->
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('success'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
+
+        <!-- CARD -->
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Data Mahasiswa</h4>
+                <a href="/mahasiswa/form" class="btn btn-success btn-sm">+ Tambah</a>
+            </div>
+
+            <div class="card-body">
+                <table id="table" class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th width="150">Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable({
+                ajax: '/mahasiswa/getData',
+                columns: [{
+                        data: 'nama'
+                    },
+                    {
+                        data: 'nim'
+                    },
+                    {
+                        data: 'id',
+                        render: function(id) {
+                            return `
+                                <a href="/mahasiswa/edit/${id}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/mahasiswa/delete/${id}" 
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Yakin hapus data?')">
+                                   Delete
+                                </a>
+                            `;
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+```
+Penjelasan Singkat :
 Menampilkan halaman form, tabel, dan edit.
+
+#### form.php
+```php
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tambah Mahasiswa</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4>Tambah Data Mahasiswa</h4>
+            </div>
+
+            <div class="card-body">
+                <form action="/mahasiswa/save" method="post">
+
+                    <div class="mb-3">
+                        <label>Nama</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Masukkan nama" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>NIM</label>
+                        <input type="text" name="nim" class="form-control" placeholder="Masukkan NIM" required>
+                    </div>
+
+                    <button class="btn btn-success">💾 Simpan</button>
+                    <a href="/mahasiswa" class="btn btn-secondary">Kembali</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+```
+Penjelasan Singkat :
+
+
+
+#### edit.php
+```php
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Mahasiswa</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-warning text-dark">
+                <h4>Edit Data Mahasiswa</h4>
+            </div>
+
+            <div class="card-body">
+                <form action="/mahasiswa/update/<?= $mhs['id']; ?>" method="post">
+
+                    <div class="mb-3">
+                        <label>Nama</label>
+                        <input type="text" name="nama" value="<?= $mhs['nama']; ?>" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>NIM</label>
+                        <input type="text" name="nim" value="<?= $mhs['nim']; ?>" class="form-control" required>
+                    </div>
+
+                    <button class="btn btn-primary">✏️ Update</button>
+                    <a href="/mahasiswa" class="btn btn-secondary">Kembali</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+```
+Penjelasan Singkat :
 
 
 ## Alur CRUD Aplikasi
@@ -264,6 +468,10 @@ User mengubah data melalui halaman edit.
 User menghapus data melalui tombol delete.
 
 
+   <img src="gambar/myadmindb.PNG" >
+   <img src="gambar/xampp.PNG" >
+
+
 ## Screenshot Website
 
 1. Halaman Tabel Data
@@ -277,6 +485,10 @@ User menghapus data melalui tombol delete.
 3. Halaman Edit Data
    <img src="gambar/editphp.PNG" >
    <img src="gambar/notifberhasilupdate.PNG" >
+
+4. Cari Data
+   <img src="gambar/searchberdasarkannim.PNG" >
+   <img src="gambar/searchberdasarkannama.PNG" >
 
 
 ## Kesimpulan
