@@ -1,4 +1,4 @@
-<img width="1226" height="612" alt="image" src="https://github.com/user-attachments/assets/a81fb803-0d8c-4d99-8243-8f5767ccb888" /><div align="center">
+<div align="center">
 
 # LAPORAN PRAKTIKUM
 
@@ -276,7 +276,7 @@ User menghapus data melalui tombol delete.
 
 3. Halaman Edit Data
    <img src="gambar/editphp.PNG" >
-   <img src="gambar/notifberhasilupdatephp.PNG" >
+   <img src="gambar/notifberhasilupdate.PNG" >
 
 
 ## Kesimpulan
