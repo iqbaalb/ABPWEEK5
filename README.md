@@ -350,7 +350,7 @@ Mengelola database dan field yang digunakan.
 </html>
 ```
 Penjelasan Singkat :
-Menampilkan halaman form, tabel, dan edit.
+Menampilkan data mahasiswa dalam bentuk tabel menggunakan DataTables yang mengambil data dari server dalam format JSON serta menyediakan tombol edit dan delete
 
 #### form.php
 ```php
@@ -398,7 +398,7 @@ Menampilkan halaman form, tabel, dan edit.
 </html>
 ```
 Penjelasan Singkat :
-
+Menampilkan form untuk menambahkan data mahasiswa baru yang kemudian dikirim ke controller untuk disimpan ke database.
 
 
 #### edit.php
@@ -447,6 +447,35 @@ Penjelasan Singkat :
 </html>
 ```
 Penjelasan Singkat :
+Menampilkan form edit yang sudah terisi data sebelumnya, sehingga user dapat mengubah data mahasiswa yang dipilih.
+
+
+
+#### app/Config/Routes.php
+```php
+<?php
+
+use CodeIgniter\Router\RouteCollection;
+
+/**
+ * @var RouteCollection $routes
+ */
+$routes->get('/', 'Mahasiswa::index');
+
+// ROUTE MAHASISWA
+$routes->get('/mahasiswa', 'Mahasiswa::index');
+$routes->get('/mahasiswa/getData', 'Mahasiswa::getData');
+$routes->get('/mahasiswa/form', 'Mahasiswa::form');
+$routes->post('/mahasiswa/save', 'Mahasiswa::save');
+$routes->get('/mahasiswa/edit/(:num)', 'Mahasiswa::edit/$1');
+$routes->post('/mahasiswa/update/(:num)', 'Mahasiswa::update/$1');
+$routes->get('/mahasiswa/delete/(:num)', 'Mahasiswa::delete/$1');
+
+```
+Penjelasan Singkat :
+Mednghubungkan konsep MVC nya.
+
+
 
 
 ## Alur CRUD Aplikasi
@@ -493,7 +522,8 @@ User menghapus data melalui tombol delete.
 
 ## Kesimpulan
 
-Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan CodeIgniter dan telah memenuhi seluruh kriteria tugas, yaitu penggunaan Bootstrap, jQuery, DataTables, serta implementasi JSON.
+Berdasarkan hasil praktikum yang telah dilakukan, aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan framework CodeIgniter 4 dengan menerapkan seluruh operasi dasar yaitu Create, Read, Update, dan Delete. Aplikasi ini juga telah menggunakan Bootstrap untuk tampilan antarmuka yang responsif, serta jQuery dan DataTables untuk menampilkan data secara interaktif berbasis JSON.
+Selain itu, aplikasi ini telah menerapkan konsep MVC (Model-View-Controller) sehingga struktur kode menjadi lebih rapi dan terorganisir. Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan framework CodeIgniter 4 dengan menerapkan seluruh operasi dasar yaitu Create, Read, Update, dan Delete. Aplikasi ini juga telah menggunakan Bootstrap untuk tampilan antarmuka yang responsif, serta jQuery dan DataTables untuk menampilkan data secara interaktif berbasis JSON.
 
 
 ## Referensi
@@ -506,4 +536,4 @@ Aplikasi CRUD Data Mahasiswa berhasil dibuat menggunakan CodeIgniter dan telah m
 
 ## Link Gdrive
 
-
+https://drive.google.com/drive/folders/1p3_gW-pewQuX8JCqsCA0AeCn-mCYktQ_?usp=sharing
